@@ -137,3 +137,26 @@ nnoremap <Leader>evc :e ~/.vimrc<Enter>
 let g:default_session = "~/.vim/sessions/Session.vim"
 command! SaveSession :exec "mks! " . g:default_session
 command! OpenSavedSession :exec "source " . g:default_session
+
+"
+" grep
+" 
+set grepprg=rg\ --no-heading\ --vimgrep
+
+function! s:GrepMotionedOverText(type)
+    if a:type !=# "char"
+        echoe "Cannot grep for lines or blocks"
+    endif
+    normal! `[v`]y
+    silent exec "grep! " . @" | redraw!
+    copen
+endfunction
+
+function! s:GrepVisuallySelectedText()
+    normal! gvy
+    silent exec "grep! " . @" | redraw!
+    copen
+endfunction
+
+nnoremap <leader>g :set opfunc=<SID>GrepMotionedOverText<CR>g@
+vnoremap <leader>g :call <SID>GrepVisuallySelectedText()<CR>
