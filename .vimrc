@@ -121,6 +121,9 @@ set statusline+=\ %l:%c
 nnoremap <Leader>co :copen<Enter>
 nnoremap <Leader>cc :cclose<Enter>
 
+" Load built-in plugin for filtering quickfix entries
+packadd cfilter 
+
 "
 " Editing .vimrc
 "
@@ -141,6 +144,8 @@ command! OpenSavedSession :exec "source " . g:default_session
 "
 " grep
 " 
+
+" Use [ripgrep](https://github.com/BurntSushi/ripgrep) as the grep program 
 set grepprg=rg\ --no-heading\ --vimgrep
 
 function! s:GrepMotionedOverText(type)
