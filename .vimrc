@@ -146,7 +146,7 @@ command! OpenSavedSession :exec "source " . g:default_session
 " 
 
 " Use [ripgrep](https://github.com/BurntSushi/ripgrep) as the grep program 
-set grepprg=rg\ --no-heading\ --vimgrep
+set grepprg=rg\ --vimgrep\ --no-column
 
 function! s:GrepMotionedOverText(type)
     if a:type !=# "char"
