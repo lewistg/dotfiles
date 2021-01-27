@@ -29,15 +29,22 @@ colorscheme myevening
 " (See:
 " https://jeffkreeftmeijer.com/vim-number/#automatic-toggling-between-line-number-modes)
 "
-augroup numbertoggle
-    autocmd!
-    " Show relative line numbers for the current buffer if in normal or visual
-    " modes. (Note: Because 'number' is set as well, the current line shows
-    " its absolute line number.)
-    autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
-    " Show absolute line numbers in insert mode and for buffers besides the
-    " one with the cursor.
-    autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
+augroup RelativeLineNumbers
+  autocmd!
+  " Show relative line numbers for the current buffer if in normal or visual
+  " modes. (Note: Because 'number' is set as well, the current line shows
+  " its absolute line number.)
+  autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
+  " Show absolute line numbers in insert mode and for buffers besides the
+  " one with the cursor.
+  autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
+augroup END
+
+" Highlight the current line for the current buffer 
+augroup CursorLine
+  autocmd! 
+  autocmd BufEnter * setlocal cursorline
+  autocmd BufLeave * setlocal nocursorline
 augroup END
 
 "
