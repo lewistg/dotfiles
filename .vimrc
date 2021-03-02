@@ -144,9 +144,19 @@ nnoremap <Leader>evc :e ~/.vimrc<Enter>
 " Session management
 "
 
-let g:default_session = "~/.vim/sessions/Session.vim"
-command! SaveSession :exec "mks! " . g:default_session
-command! OpenSavedSession :exec "source " . g:default_session
+" Quickly save the current session
+let g:sessions_dir = "~/.vim/sessions/"
+let g:default_filename = "Session.vim"
+command! SaveSession :exec "mks! " . <SID>GetSessionName()
+command! OpenSavedSession :exec "source " . <SID>GetSessionName()
+function! s:GetSessionName() abort
+    let l:branch_name = trim(system('git branch --show-current'))
+    if v:shell_error == 0
+        return g:sessions_dir . l:branch_name . ".vim"
+    else
+        return g:sessions_dir . g:default_filename . ".vim"
+    endif
+endfunction
 
 "
 " grep
