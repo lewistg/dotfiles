@@ -188,3 +188,22 @@ endfunction
 
 nnoremap <leader>g :set opfunc=<SID>GrepMotionedOverText<CR>g@
 vnoremap <leader>g :call <SID>GrepVisuallySelectedText()<CR>
+
+"
+" Search and replace the visually selected word
+"
+function! s:StartSubstitutionForSelection() abort
+    " Yank the previously visually selected text
+    normal `<v`>y
+    call feedkeys(":%s/" . @" . "/")
+endfunction
+
+function! s:StartSubstitutionForSelectionWithYanked() abort
+    " Yank the previously visually selected text
+    let l:yanked = @"
+    normal `<v`>y
+    call feedkeys(":%s/" . @" . "/" . l:yanked . "/gc")
+endfunction
+
+vnoremap <Leader>s <ESC>:call <SID>StartSubstitutionForSelection()<CR>
+vnoremap <Leader>sy <ESC>:call <SID>StartSubstitutionForSelectionWithYanked()<CR>
