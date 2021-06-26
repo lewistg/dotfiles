@@ -62,6 +62,10 @@ nnoremap <C-h> <C-W>h
 " Move to the buffer to the right
 nnoremap <C-l> <C-W>l
 
+" Delete the current buffer and replace it with the alternate file. This lets
+" us delete a buffer without destroying the current window split.
+command! Bd :bp \| bd #
+
 "
 " Tab navigation
 "
