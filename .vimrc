@@ -2,8 +2,10 @@
 " Basic settings
 "
 
-" Show line numbers
+" Show line number for current line and relative line numbers for all of the
+" other lines. (See :h number_relativenumber)
 set number
+set relativenumber
 " New lines copy previous line's indentation
 set autoindent
 " Make <Tab> key insert spaces
