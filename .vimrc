@@ -24,7 +24,6 @@ set smartcase
 syntax on
 " Set custom key mapping leader key
 let mapleader = ","
-colorscheme myevening
 " Ignore netrw buffer when using <CTRL>-6
 let g:netrw_altfile = 1
 
