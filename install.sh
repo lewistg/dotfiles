@@ -14,4 +14,4 @@ readonly DOT_FILES_DIR=.my-dot-files
 git clone --bare "$DOT_FILES_REPO" "$DOT_FILES_DIR"
 echo "$DOT_FILES_DIR" >> .gitignore
 git --git-dir="$DOT_FILES_DIR" config --local status.showUntrackedFiles no
-git --git-dir="$DOT_FILES_DIR" checkout -- '!install.sh'
+git --git-dir="$DOT_FILES_DIR" checkout -- '!install.sh' '!README.md'
