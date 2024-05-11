@@ -9,7 +9,8 @@
 set -euo pipefail
 
 readonly DOT_FILES_REPO="git@github.com:lewistg/dotfiles.git"
-export readonly GIT_DIR=".dotfiles-git"
+export readonly GIT_WORK_TREE="$(dirname "$0")"
+export readonly GIT_DIR="$GIT_WORK_TREE/.dotfiles-git"
 
 git clone --bare "$DOT_FILES_REPO" "$GIT_DIR"
 
