@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+#
+# This script makes it easier to maniuplate the dotfiles bare repository.
+# You'll likely want to add this script to your $PATH.
+# ```
+# export PATH="$PATH:$HOME/.dotfiles
+# ```
+# (Note that the above snippet assumes you've installed this repo in your home
+# directory.)
+
+set -euo pipefail
+
+SCRIPT_DIR="$(realpath $(dirname "$0"))"
+export GIT_WORK_TREE="$(realpath $SCRIPT_DIR/..)"
+export GIT_DIR="$GIT_WORK_TREE/.dotfiles-git"
+
+git "$@"
