@@ -1,0 +1,10 @@
+[user]
+	email = tyglewis@gmail.com
+	name = Ty Lewis
+[core]
+	editor = nvim
+[alias]
+	co = checkout
+	c = commit
+	p = push
+	amend = commit
