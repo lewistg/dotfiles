@@ -1,0 +1,11 @@
+# Ubuntu provides it's own default .bashrc; instead of overwriting it we
+# provide this "annex" config file that can be included by appending the
+# default .bashrc with the following:
+#
+# ```
+# . .dotfiles-bashrc-annex
+# ```
+
+if [ -r .git-completion.bash ]; then
+    . .git-completion.bash
+fi
