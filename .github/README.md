@@ -7,7 +7,7 @@ I recommend using the "git --bare" method of managing dot files. Credit to
 method, you can install the dot files on a new machine using the
 [`.dotfiles/install.sh`][2] script like so:
 ```
-curl https://raw.githubusercontent.com/lewistg/dotfiles/master/.dotfiles/install.sh | bash
+bash -c "$(curl https://raw.githubusercontent.com/lewistg/dotfiles/master/.dotfiles/install.sh)"
 ```
 
 [1]: https://www.atlassian.com/git/tutorials/dotfiles
