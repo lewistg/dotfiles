@@ -7,4 +7,6 @@
 	co = checkout
 	c = commit
 	p = push
-	amend = commit
+	ri = rebase --interactive
+	rc = rebase --continue
+	amend = commit --amend
