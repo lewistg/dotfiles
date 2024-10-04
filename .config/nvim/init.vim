@@ -11,6 +11,10 @@ set nohlsearch
 inoremap <expr> <c-j> pumvisible() ? "\<C-N>" : "\<C-j>"
 inoremap <expr> <c-k> pumvisible() ? "\<C-P>" : "\<C-k>"
 
+" Use j/k to cycle through wildmenu
+cnoremap <c-k> <Left>
+cnoremap <c-j> <Right>
+
 " Disable mouse right-click menu (:help default-mouse)
 set mouse=
 
