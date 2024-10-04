@@ -11,6 +11,9 @@ set nohlsearch
 inoremap <expr> <c-j> pumvisible() ? "\<C-N>" : "\<C-j>"
 inoremap <expr> <c-k> pumvisible() ? "\<C-P>" : "\<C-k>"
 
+" Disable mouse right-click menu (:help default-mouse)
+set mouse=
+
 " Quickly edit Neovim config
 nnoremap <Leader>evc :e ~/.config/nvim/init.vim<CR>
 
