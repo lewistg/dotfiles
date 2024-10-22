@@ -21,8 +21,14 @@ set mouse=
 " Quickly edit Neovim config
 nnoremap <Leader>evc :e ~/.config/nvim/init.vim<CR>
 
-" Load plugin config
-let s:plugin_config = "~/.config/nvim/init-plugins.vim"
-if filereadable(expand(s:plugin_config))
-    exec "source " . s:plugin_config
-endif
+" Load extra config (e.g., plugins)
+let s:extra_config = [
+    \ "~/.config/nvim/config.lua",
+    \ "~/.config/nvim/init-plugins.vim",
+    \ "~/.config/nvim/init-plugins.lua",
+    \]
+for config_file in s:extra_config
+    if filereadable(expand(config_file))
+        exec "source " . config_file
+    endif
+endfor
