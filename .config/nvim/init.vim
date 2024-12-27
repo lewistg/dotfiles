@@ -18,6 +18,11 @@ cnoremap <c-j> <Right>
 " Disable mouse right-click menu (:help default-mouse)
 set mouse=
 
+" Use + register, the register tied to the sytem clipboard, as the unnamed
+" register. In other words, yanks and pastes will come from the system
+" clipboard.
+set clipboard=unnamedplus
+
 " Quickly edit Neovim config
 nnoremap <Leader>evc :e ~/.config/nvim/init.vim<CR>
 
