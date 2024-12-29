@@ -26,14 +26,6 @@ set clipboard=unnamedplus
 " Quickly edit Neovim config
 nnoremap <Leader>evc :e ~/.config/nvim/init.vim<CR>
 
-" Load extra config (e.g., plugins)
-let s:extra_config = [
-    \ "~/.config/nvim/config.lua",
-    \ "~/.config/nvim/init-plugins.vim",
-    \ "~/.config/nvim/init-plugins.lua",
-    \]
-for config_file in s:extra_config
-    if filereadable(expand(config_file))
-        exec "source " . config_file
-    endif
-endfor
+" Source plugin config (if any)
+runtime init-plugins.vim
+runtime init-plugins.lua
