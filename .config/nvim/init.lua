@@ -84,14 +84,14 @@ local function close_tabs_in_direction_tabs(direction)
     local close_count = 0
     local next_tab
     if (direction > 0) then
-        close_count = cur_tab_nr - vim.fn.tabpagenr('$')
+        close_count = vim.fn.tabpagenr('$') - cur_tab_nr
         next_tab = '+'
     elseif (direction < 0) then
         close_count = cur_tab_nr - 1
         next_tab = '-'
     end
     while close_count > 0 do
-        vim.cmd.tablclose(next_tab)
+        vim.cmd.tabclose(next_tab)
         close_count = close_count - 1
     end
 end
@@ -102,7 +102,7 @@ vim.keymap.set('n', '<Leader>tcr', function()
 end)
 
 -- Close tabs to the left of the current tab
-vim.keymap.set('n', '<Leader>tcr', function()
+vim.keymap.set('n', '<Leader>tcl', function()
     close_tabs_in_direction_tabs(-1)
 end)
 
