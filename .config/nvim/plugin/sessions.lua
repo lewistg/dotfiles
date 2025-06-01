@@ -6,7 +6,10 @@ end
 vim.api.nvim_create_user_command(
     "SaveSession",
     function()
-        vim.cmd.mksession(get_session_file())
+        vim.cmd.mksession {
+            args = { get_session_file() },
+            bang = true
+        }
     end,
     {}
 )
