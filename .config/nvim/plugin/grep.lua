@@ -1,8 +1,4 @@
 local function grep_visually_selected_text()
-    -- Exit visual mode
-    local escape_key = vim.api.nvim_replace_termcodes("<Esc>", true, false, true)
-    vim.api.nvim_feedkeys(escape_key, "nx", false)
-
     local _, start_line, start_col = unpack(vim.fn.getpos("v"))
     local _, end_line, end_col = unpack(vim.fn.getpos("."))
     if (start_line ~= end_line) then
@@ -17,6 +13,10 @@ local function grep_visually_selected_text()
         end_col,
         {}
     )
+
+    -- Exit visual mode
+    local escape_key = vim.api.nvim_replace_termcodes("<Esc>", true, false, true)
+    vim.api.nvim_feedkeys(escape_key, "nx", false)
 
     vim.cmd.grep {
         args = selected_text,
