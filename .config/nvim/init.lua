@@ -42,7 +42,7 @@ vim.o.grepprg='rg --vimgrep --no-column'
 -- vim.o.clipboard = ',unnamedplus'
 
 -- Disable mouse right-click menu (:help default-mouse)
-vim.o.mouse = false
+vim.o.mouse = ""
 
 --[[
 -- Key mappings
