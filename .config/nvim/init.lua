@@ -25,7 +25,7 @@ vim.o.backspace = 'indent,eol,start'
 -- When 'ignorecase' and 'smartcase' are both enabled, search ignores case
 -- except when the search pattern contains an uppercase letter.
 vim.o.ignorecase = true
-vim.o.osmartcase = true
+vim.o.smartcase = true
 
 -- Wait for <CR> before jumping to results
 vim.o.incsearch = false
