@@ -36,11 +36,6 @@ vim.o.hlsearch = false
 -- Use [ripgrep](https://github.com/BurntSushi/ripgrep) as the grep program 
 vim.o.grepprg='rg --vimgrep --no-column'
 
--- Use + register, the register tied to the sytem clipboard, as the unnamed
--- register. In other words, yanks and pastes will come from the system
--- clipboard.
--- vim.o.clipboard = ',unnamedplus'
-
 -- Disable mouse right-click menu (:help default-mouse)
 vim.o.mouse = ""
 
@@ -50,6 +45,11 @@ vim.o.mouse = ""
 
 -- Set leader key for key mappings
 vim.g.mapleader = ","
+
+-- Clipboard copy/paste
+-- See :help quoteplus
+vim.keymap.set({'n', 'v'}, '<Leader>y', '"+y')
+vim.keymap.set({'n', 'v'}, '<Leader>p', '"+p')
 
 -- Window navigation
 for _, key in pairs({'j', 'k', 'h', 'l'}) do
