@@ -1,0 +1,7 @@
+# Title bar
+title = "Terminal"
+bell-features = no-title
+
+# Colors
+theme = Nightfox
+background-opacity=0.9
