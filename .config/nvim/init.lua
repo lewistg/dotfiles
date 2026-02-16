@@ -40,6 +40,7 @@ vim.o.grepprg='rg --vimgrep --no-column'
 vim.o.mouse = ""
 
 require("config.keymaps")
+require("config.lsp")
 
 -- Note: Some plugin configs will define their own key maps
 require("config.plugins")
