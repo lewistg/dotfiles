@@ -5,14 +5,17 @@ local required_name = ...
 
 local dir = vim.fs.dirname(debug.getinfo(1, "S").source:sub(2))
 
-local plugin_config_files = vim.fs.find(function(name, path)
-    return name:match(".*%.lua")
+local plugin_config_files = vim.fs.find(function(filename, path)
+	return filename:match(".*%.lua$") and filename ~= "init.lua"
 end, {
-    path = dir,
-    type = "file",
+	path = dir,
+	type = "file",
+	limit = math.huge,
 })
 
+local base_module_name = required_name:gsub("%.init$", "")
+
 for _, file in ipairs(plugin_config_files) do
-    local module_name = required_name .. "." .. vim.fs.basename(file):gsub("%.lua$", "")
-    require(module_name)
+	local module_name = base_module_name .. "." .. vim.fs.basename(file):gsub("%.lua$", "")
+	require(module_name)
 end
