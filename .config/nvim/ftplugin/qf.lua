@@ -4,8 +4,10 @@ vim.keymap.set(
     'n',
     '<Leader>yy',
     function()
-        vim.fn.execute('normal yy')
-        local matches = vim.fn.matchlist(vim.fn.trim(vim.fn.getreg()), [[^.\{1,}|\d\{1,\}|\s\(.\{1,}\)$]])
-        vim.fn.setreg('', matches[2] .. '\n')
+        local _, line_index = vim.fn.getpos(".")
+        local selected_item = vim.fn.getqflist({items = true, idx = line_index}).items[1]
+        if selected_item.valid then
+            vim.fn.setreg('', selected_item.text .. '\n')
+        end
     end
 )
