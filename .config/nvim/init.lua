@@ -39,6 +39,8 @@ vim.o.grepprg='rg --vimgrep --no-column'
 -- Disable mouse right-click menu (:help default-mouse)
 vim.o.mouse = ""
 
+vim.cmd.packadd("cfilter")
+
 require("config.keymaps")
 require("config.lsp")
 
